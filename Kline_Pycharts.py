@@ -2379,6 +2379,13 @@ class PyechartsMainWindow(QtWidgets.QMainWindow, Ui_Pyechart):
 				check_count += 1
 	def K_line(self,stock_text,date_sqls):
 
+		#for c in stock_text:
+			#if c.isalpha():
+				#return
+
+		if stock_text == "" or int(stock_text) <= 0:
+			return
+
 		values = list()
 		dates = list()
 		vols = list()
@@ -3175,6 +3182,8 @@ class PyechartsMainWindow(QtWidgets.QMainWindow, Ui_Pyechart):
 				self.stock_info = '''SELECT * FROM Company_information WHERE sid=%s'''
 				self.cursor.execute(self.stock_info,stock_num)
 				stock_list = self.cursor.fetchall()
+				if len(stock_list) == 0:
+					return
 				stock_len = len(stock_list[0])
 				count = 0
 				for st_len in range(1,17):
