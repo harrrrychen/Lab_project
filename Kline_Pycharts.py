@@ -2379,9 +2379,9 @@ class PyechartsMainWindow(QtWidgets.QMainWindow, Ui_Pyechart):
 				check_count += 1
 	def K_line(self,stock_text,date_sqls):
 
-		#for c in stock_text:
-			#if c.isalpha():
-				#return
+		for c in stock_text:
+			if c.isalpha():
+				return
 
 		if stock_text == "" or int(stock_text) <= 0:
 			return
